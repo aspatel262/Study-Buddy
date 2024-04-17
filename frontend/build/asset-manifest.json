@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.075a8026.css",
+    "main.js": "/static/js/main.db5c2368.js",
+    "static/media/umich.png": "/static/media/umich.4dc1c3860bfb8683b975.png",
+    "static/media/berkley.png": "/static/media/berkley.859861c5b37fb7ed7033.png",
+    "static/media/mascotNoBG.png": "/static/media/mascotNoBG.9edfd2f7fdd66267ec7a.png",
+    "static/media/gtech.png": "/static/media/gtech.cf739c76d8a8cb25a3dc.png",
+    "static/media/upenn.png": "/static/media/upenn.fdab3ce29ae9024012f4.png",
+    "static/media/navbarLogo.png": "/static/media/navbarLogo.01b335668fc72f45ef77.png",
+    "static/media/msu.png": "/static/media/msu.3ac11e50bc31aea4f507.png",
+    "static/media/bc2.png": "/static/media/bc2.594a42ee4103b2038935.png",
+    "static/media/quizimg.jpg": "/static/media/quizimg.3e635ac69e632d866c92.jpg",
+    "static/media/jjm.jpeg": "/static/media/jjm.54859224c274d84dc830.jpeg",
+    "index.html": "/index.html",
+    "main.075a8026.css.map": "/static/css/main.075a8026.css.map",
+    "main.db5c2368.js.map": "/static/js/main.db5c2368.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.075a8026.css",
+    "static/js/main.db5c2368.js"
+  ]
+}

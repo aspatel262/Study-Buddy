@@ -1,0 +1,576 @@
+.figure-component {
+  padding: 4rem 1rem;
+}
+
+.content-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(to top left, rgb(250, 217, 250), #f8f8ff 70%);
+  border-radius: 15px;
+  padding: 2rem;
+  margin: 4rem auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #000;
+  max-width: 1200px;
+  margin-top: 0px;
+}
+
+.mascot {
+  position: absolute;
+  bottom: 5px; /* Adjust as needed */
+  left: 0px; /* Adjust as needed */
+  width: 100px; /* Adjust as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.api-output {
+  overflow-y: auto;
+  max-height: 450px;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  width: 100%;
+  box-shadow: 10px 10px 5px 12px lightblue;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.api-response {
+  border-bottom: 1px solid #ddd;
+  padding: 0.5rem 0;
+}
+
+.quiz-section {
+  margin-top: 2rem;
+  flex:auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quiz-section h2 {
+  color: #1a8cd8;
+  margin-bottom: 1rem;
+}
+
+.quiz-section input[type="number"] {
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.questions-output {
+  margin-top: 1rem;
+}
+
+.question {
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #f9f9f9;
+}
+
+.score {
+  font-weight: bold;
+  text-align: right;
+  margin-top: 1rem;
+}
+
+.statistic {
+  text-align: center;
+  margin: 1rem;
+}
+
+.statistic-number {
+  /* Gradient text style */
+  font-size: 2rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #1a8cd8 0%, #4dabf7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+  transition: transform 0.3s ease-in-out;
+}
+
+.statistic-label {
+  font-size: 1rem;
+}
+
+.testimonial {
+  max-width: 45%;
+  margin: 1rem;
+  padding: 1rem;
+  border-left: 4px solid #1a8cd8;
+  font-style: italic;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.testimonial-quote {
+  quotes: "“" "”" "‘" "’";
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.testimonial-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.figure-component {
+  padding: 4rem 1rem;
+  background: linear-gradient(to right, #000026 40%, rgb(136, 19, 136) 100%);
+  min-height: 100vh; /* Ensure it takes at least the full height of the viewport */
+}
+
+.api-output {
+  background: #FFF; /* Or another color based on your theme */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  padding: 1rem; /* Padding inside the box */
+  margin-top: 2rem; /* Space above the box */
+  height: auto; /* Height should adjust based on content */
+  min-height: 350px; /* Minimum height to maintain size without content */
+  width: 100%; /* Full width */
+  overflow-y: auto; /* Allow scrolling when content overflows */
+  border: 1px solid #ddd; /* Border for definition */
+  position: relative;
+  flex: auto;
+  align-items: center;
+}
+
+.output-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Aligns children elements to the center */
+  justify-content: center; /* Centers children elements vertically if there is extra space */
+  position: relative;
+  background: #FFF; /* Or another color based on your theme */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  padding: 1rem; /* Padding inside the box */
+  margin-top: 2rem; /* Space above the box */
+  min-height: 350px; /* Minimum height to maintain size without content */
+  width: 75%; /* Full width */
+  overflow-y: auto; /* Allow scrolling when content overflows */
+  border: 1px solid #ddd; /* Border for definition */
+  flex: auto;
+  max-width: 1200px;
+  padding-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers children horizontally in the container */
+  justify-content: center; /* Centers children vertically in the container */
+  width: 100%; /* Adjust width as necessary */
+  max-width: 1200px; /* Adjust maximum width as necessary */
+  margin: 0 auto; /* Centers the box in the parent container */
+}
+
+.quiz-output-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Aligns children elements to the center */
+  justify-content: center; /* Centers children elements vertically if there is extra space */
+  position: relative;
+  background: #FFF; /* Or another color based on your theme */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  padding: 1rem; /* Padding inside the box */
+  margin-top: 2rem; /* Space above the box */
+  min-height: 350px; /* Minimum height to maintain size without content */
+  width: 75%; /* Full width */
+  overflow-y: auto; /* Allow scrolling when content overflows */
+  border: 1px solid #ddd; /* Border for definition */
+  flex: auto;
+  max-width: 1200px;
+  padding-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers children horizontally in the container */
+  justify-content: center; /* Centers children vertically in the container */
+  width: 100%; /* Adjust width as necessary */
+  max-width: 1200px; /* Adjust maximum width as necessary */
+  margin: 0 auto; /* Centers the box in the parent container */
+}
+
+
+.file-display-bubble {
+  background-color: #f0f0f0;
+  color: #333;
+  border-radius: 12px;
+  padding: 0.25rem 0.75rem;
+  margin-left: 10px;
+  font-size: 0.875rem;
+  display: inline-block;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.suga {
+background: linear-gradient(to right, #1a8cd8 0%, rgb(136, 19, 136) 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+display: inline; /* Or block, depending on your layout */
+}
+
+.suga2 {
+  background: rgb(136, 19, 136);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline; /* Or block, depending on your layout */
+  }
+    
+    .quiz-section {
+      opacity: 0;
+      transform: translateY(20px); 
+      visibility: hidden;
+      transition: opacity 0.5s, transform 0.5s, visibility 0.5s;
+    }
+    
+    .quiz-section-visible {
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+      padding-top: 50px;
+    }
+
+    .quiz-input-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .num-questions-input {
+      width: 50%; /* Set to desired width */
+    }
+    
+    /* Add styles for your label if needed */
+    label {
+      color: #000; /* Adjust as needed */
+      font-size: 1rem; /* Adjust as needed */
+    }
+    
+    /* Make sure your transitions and visibility styles are set for the .quiz-section-visible class */
+    .quiz-section-visible {
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+      transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease;
+    }
+    
+    /* Hide the section initially */
+    .quiz-section {
+      opacity: 0;
+      transform: translateY(20px);
+      visibility: hidden;
+      transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease;
+    }
+    
+    
+    /* Modify the number input type style */
+    .input-section input[type="number"] {
+      width: 200px; /* Half the size of 'Topic Name' input */
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      text-align: center;
+      color: black;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+    }
+    
+    .score-container {
+      position: absolute;
+      margin-top: 0px;
+      top: 10px;
+      right: 10px;
+      background: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      border: 2px solid #1a8cd8; /* Border color to match your theme */
+      color: #1a8cd8; /* Text color to match your theme */
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+      font-size: 1.2rem;
+      font-weight: bold;
+      z-index: 10; /* Ensure it sits above other content */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 80px; /* To ensure size for single digits */
+      flex-direction: column; /* Stack flex children vertically */
+      align-items: flex-start; /* Align children to the start of the cross axis */
+      align-self: flex-end;
+    }
+    
+    .score {
+      margin: 0; /* Remove margin if any */
+    }
+    
+
+.flash-card-container {
+  background-color: #f8f8ff; /* Light background color for the card */
+  border-radius: 15px; /* Rounded corners for the card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin: 2rem auto; /* Centering the card with margin on top and bottom */
+  padding: 1rem; /* Padding inside the card */
+  max-width: 80%; /* Maximum width with respect to its container */
+  word-wrap: break-word; /* Ensure long words do not overflow */
+  position: relative;
+}
+
+.flash-card-header {
+  font-size: 1.5rem; /* Adjust size as needed */
+  font-weight: bold;
+  color: #2575fc;
+  text-align: center;
+  margin-bottom: 1rem; /* Space between the header and definition */
+}
+
+.flash-card-definition {
+  font-size: 1.2rem; /* Adjust size as needed */
+  color: #4c4c4c; /* A neutral color for the definition text */
+  text-align: left;
+  padding: 2rem 0; /* Padding for visual comfort */
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+.loading-container {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  padding-top: 10px; /* Padding above the text */
+}
+
+.typing-effect {
+  font-size: 1.5rem; /* Set the text size */
+  font-weight: bold;
+  padding-top: 10px; /* Space between the animation and the text */
+  background: linear-gradient(to right, #1a8cd8, rgb(136, 19, 136)); /* Gradient background */
+  -webkit-background-clip: text;
+  color: transparent; /* Hide the text color so the gradient shows */
+  border-right: 2px solid #1a8cd8; /* Cursor styling */
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  width: 0; /* Start with no width */
+  animation: typing 1s steps(30, end) 1s forwards, blink-cursor 0.75s step-end infinite;
+  
+  /* Adjust the step count to the number of characters in the text */
+}
+
+/* Add @keyframes for the typing effect */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Add @keyframes for the blinking cursor */
+@keyframes blink-cursor {
+  from, to { border-color: transparent; }
+  50% { border-color: #1a8cd8; }
+}
+
+/* Adjust the ::after pseudo-element for the cursor */
+.typing-effect::after {
+  content: '|';
+  position: absolute;
+  right: 0; /* Adjust so the cursor is right after the text */
+  top: 0; /* Adjust for vertical alignment */
+  color: #1a8cd8; /* Color of the cursor */
+  font-size: 1.5rem; /* Match the font size of the text */
+  animation: blink-cursor 0.75s steps(1) infinite;
+}
+
+
+
+
+.input-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 1rem;
+  background: #f4f4f9;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.upload-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.file-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1; /* Assign flex 1 to match the topic name input */
+}
+
+.file-upload-label {
+  background: linear-gradient(to right, #1a8cd8 0%, rgb(136, 19, 136) 100%);
+  color: #fff;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease; /* Transition for smooth effect */
+}
+
+.file-upload-label:hover {
+  transform: scale(1.05); /* Slightly increase the size */
+  background: linear-gradient(to right, #0f76a8 0%, #88278f 100%); /* Darkened gradient */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for depth */
+  color: #fff; /* Adjust text color if needed */
+}
+
+
+.file-selected {
+  background-color: #e9ecef;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  flex: 1; /* Same flex-grow value for equal width */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#file-upload {
+  display: none;
+}
+
+.topic-name-input {
+  flex: 1; /* Same flex-grow value for equal width */
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+}
+
+.generate-button {
+  background: #1a8cd8;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  flex: 1; /* Optional: If you want the button to also be the same width */
+}
+
+.generate-button:hover {
+  background-color: #1380c6;
+}
+
+/* You may need to adjust or remove media queries based on your design */
+
+@media (max-width: 768px) {
+  .input-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .file-input-wrapper,
+  .file-selected,
+  .topic-name-input,
+  .generate-button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .file-input-wrapper,
+  .file-selected,
+  .topic-name-input {
+    flex: none; /* Disable flexbox properties for stacked layout */
+  }
+}
+.question-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Ensure vertical centering */
+  flex-direction: column; /* Stack children vertically */
+  margin-bottom: 1rem; /* Adjusted for tighter layout */
+  color: #1a8cd8; /* Text color to match your theme */
+  font-size: 1.5rem;
+  font-weight: bold;  
+  text-align: center;
+  margin-top: 20px;
+  width:calc(100%-1rem)
+}
+
+.answers-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px; /* Reduced gap between answer options */
+  padding-bottom: 0px;
+  width: 100%; /* Ensures the container spans the full width */
+  margin-top: 20px;
+}
+
+.answer-option {
+  padding: 15px;
+  text-align: center;
+  background-color: #f0f0f0;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s;
+  height: 100%; /* Make all options the same height */
+  width: 100%;
+}
+
+.answer-option:hover {
+  transform: scale(1.03);
+}
+.score-and-question-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 0; /* Adjust top margin as desired */
+}
+
+.score-bubble, .question-number-bubble {
+  background-color: white;
+  border: 2px solid #1a8cd8;
+  border-radius: 15px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color:#1a8cd8;
+  /* Added flex-basis to control the width of the bubbles */
+  flex-basis: 48%;
+  text-align: center;
+  margin-top: -20px; /* Adjust top margin to reduce gap */
+}
+
+/* Transition styles for quiz sections and other dynamic content */
+.animated-section {
+  display: block;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+  visibility: hidden;  /* Ensures that the section doesn't interact when hidden */
+}
+
+.animated-section.visible {
+  opacity: 1;
+  transform: scale(1);
+  visibility: visible;  /* Ensures that the section is interactable when visible */
+}

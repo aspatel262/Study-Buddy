@@ -1,0 +1,22 @@
+{
+    "Singly-Linked List": "A sequence of nodes where each node stores data and a pointer to the next node in the sequence. The last node points to nullptr.",
+    "Doubly-Linked List": "Similar to a singly-linked list, but each node also stores a pointer to the previous node. This allows for traversal in both directions but requires more memory.",
+    "Node Insertion (Empty List)": "Allocate a new node and set both head and tail pointers to it.",
+    "Node Insertion (Front)": "Allocate a new node, set its next pointer to the current head, update the previous pointers if doubly-linked, and set the head to the new node.",
+    "Node Insertion (Back)": "Allocate a new node, set its previous pointer to the current tail if doubly-linked, update the next pointer of the tail, and set the tail to the new node.",
+    "Node Insertion (Middle)": "Allocate a new node, update its previous and next pointers to connect with the surrounding nodes, and adjust the surrounding nodes' pointers accordingly.",
+    "Node Deletion (Given Index)": "Requires iterating through the list to find the node, resulting in O(n) time complexity.",
+    "Node Deletion (Given Pointer - Doubly-Linked)": "O(1) time complexity as you can directly access and update the previous and next nodes.",
+    "Node Deletion (Given Pointer - Singly-Linked)": "Generally O(n) as you need to find the previous node by iterating. O(1) is possible with specific conditions, but has limitations.",
+    "Reversing a Linked List (Naive)": "Iterate through the list and copy elements to a new list in reverse order. O(n) time and space complexity.",
+    "Reversing a Linked List (Optimized Iterative)": "Use three pointers (curr, prev, next) to iteratively reverse the pointers in place. O(n) time and O(1) space complexity.",
+    "Reversing a Linked List (Recursive)": "Recursively traverse the list, setting the next pointer of each node to its previous node. O(n) time and O(1) space complexity.",
+    "Two Pointer Technique": "Employs two pointers with different speeds or distances to solve problems like finding the kth to last element, middle node, or detecting cycles.",
+    "STL std::vector": "A dynamic array-based container that manages memory automatically and can resize itself as needed.",
+    "Vector Size vs. Capacity": "Size represents the number of valid elements, while capacity represents the total number of elements the underlying array can hold.",
+    "Vector Reallocation": "Occurs when the vector needs more space, potentially invalidating pointers/iterators and taking time. Can be mitigated by reserving capacity.",
+    "Vector .reserve()": "Allocates memory for a specific capacity without changing the size. Useful to avoid unnecessary reallocations.",
+    "Vector .resize()": "Changes the size of the vector and initializes new elements. May trigger reallocation if the new size exceeds capacity.",
+    "Multidimensional Vectors": "Created by nesting vectors within vectors. The order of dimensions can impact performance and memory usage.",
+    "Vector Performance Considerations": "Iterating through the outermost dimension first is generally faster due to memory locality. Ordering dimensions from smallest to largest can reduce memory overhead."
+}
