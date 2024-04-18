@@ -1,6 +1,8 @@
 # Study Buddy  <img src="https://raw.githubusercontent.com/avaneeshp/Study-Buddy/main/front/src/assets/logoDump/navbarLogo.png" alt="Study Buddy Navbar Logo" width="150" align="right"/>
 
-This is a study-helper website project made for the hackathon Google x MHacks by Aditya Patel, Avaneesh Prasad, Eshwar Kanakasabai, and Nidhil Nayudu.
+This is a study-helper website project made to make your life easier when catching up on lecture content in an interactive way.
+
+For quick launch local hosting, run '$python3 backend/studybuddy.py' in the terminal, and in another terminal in the frontend directory, run '$npm start'
 
 ## Inspiration
 Lately, the EECS Office Hours queue has been busier than Ann Arbor on football gamedays. Myself and my peers alike are often in dire need of help, but can never rely on office hours to get them. For a service that is so highly encouraged, it would be nice to have availability and access. So, we sought to solve this issue by making a virtual TA, training to solve all of these issues! This feature aims to summarize any course content file provided into quick, easy flashcards to study from. 
