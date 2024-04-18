@@ -35,6 +35,25 @@
   overflow-x: hidden;
 }
 
+.api-output-final-score {
+  max-height: 450px;
+  position: relative;
+  overflow-x: hidden;
+  background: #FFF; /* Or another color based on your theme */
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  padding: 1rem; /* Padding inside the box */
+  margin-top: 2rem; /* Space above the box */
+  height: 200px;
+  width: 400px; /* Full width */
+  overflow-y: auto; /* Allow scrolling when content overflows */
+  border: 1px solid #ddd; /* Border for definition */
+  position: relative;
+  flex: auto;
+  align-items: center;
+
+}
+
 .api-response {
   border-bottom: 1px solid #ddd;
   padding: 0.5rem 0;
@@ -573,4 +592,74 @@ display: inline; /* Or block, depending on your layout */
   opacity: 1;
   transform: scale(1);
   visibility: visible;  /* Ensures that the section is interactable when visible */
+}
+
+.quiz-trigger {
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+  justify-content: flex-start; /* Align items to the left */
+  gap: 10px; /* Space between elements */
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.answer-option.selected {
+  transform: scale(1.05);
+  border: 2px solid transparent;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.answer-option.correct {
+  border-color: lightgreen;
+}
+
+.answer-option.incorrect {
+  border-color: red;
+}
+
+.typing-effect-slower {
+  font-size: 1.5rem; /* Set the text size */
+  font-weight: bold;
+  padding-top: 10px; /* Space between the animation and the text */
+  background: linear-gradient(to right, #1a8cd8, rgb(136, 19, 136)); /* Gradient background */
+  -webkit-background-clip: text;
+  color: transparent; /* Hide the text color so the gradient shows */
+  border-right: 2px solid #1a8cd8; /* Cursor styling */
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  width: 0; /* Start with no width */
+  animation: typing 2s steps(30, end) 2s forwards, blink-cursor 0.75s step-end infinite;
+
+  /* Adjust the step count to the number of characters in the text */
+}
+
+
+.typing-effect-slower2 {
+  font-size: 1.5rem; /* Set the text size */
+  font-weight: bold;
+  padding-top: 10px; /* Space between the animation and the text */
+  background: linear-gradient(to right, #1a8cd8, rgb(136, 19, 136)); /* Gradient background */
+  -webkit-background-clip: text;
+  color: transparent; /* Hide the text color so the gradient shows */
+  border-right: 2px solid #1a8cd8; /* Cursor styling */
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  width: 0; /* Start with no width */
+  animation: typing 12s steps(8, end) 2s forwards, blink-cursor 0.75s step-end infinite;
+
+  /* Adjust the step count to the number of characters in the text */
+}
+
+
+/* Adjust the ::after pseudo-element for the cursor */
+.typing-effect-slower::after {
+  content: '';
+  position: absolute;
+  right: 0; /* Adjust so the cursor is right after the text */
+  top: 0; /* Adjust for vertical alignment */
+  color: #1a8cd8; /* Color of the cursor */
+  font-size: 1.5rem; /* Match the font size of the text */
+  animation: blink-cursor 0.75s steps(1) infinite;
 }
