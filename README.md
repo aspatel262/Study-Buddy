@@ -3,7 +3,7 @@
 This is a study-helper website project made to make your life easier when catching up on lecture content in an interactive way.
 
 ## Quick Setup
-For quick launch local hosting, run '$python3 backend/studybuddy.py' in the terminal, and in another terminal in the frontend directory, run '$npm start'. Note that you will need your own Google Gemini 1.5 API key for this to write in the 'api key here' spaces in generator.py. Have not set up env variables yet. Billing rates may apply post April 2024.
+For quick launch local hosting, run '$python3 backend/studybuddy.py' in the terminal, and in another terminal in the frontend directory, run '$npm start' (Ensure all node modules are installed as needed). Note that you will need your own Google Gemini 1.5 API key for this to write in the 'api key here' spaces in generator.py. Have not set up env variables yet. Billing rates may apply post April 2024.
 
 
 ## Inspiration
