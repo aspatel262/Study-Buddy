@@ -14,10 +14,11 @@ genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
 
 workdir = "."
 combined_text_cur = ""
+files_to_delete = []
 
 def generate_quiz(topic, num_questions):
     model = genai.GenerativeModel('gemini-1.5-pro-latest')
-    promptQuiz  = f"I am having trouble understanding {topic}. Here are the lecture information associated with it. Can you make a multiple choice quiz (A,B,C,D) with {num_questions} questions based on the content provided, and give me the answers? Return output in json format of a list of question, options, and answer."
+    promptQuiz  = f"I am having trouble understanding {topic}. Here are the lecture information associated with it. Can you make a multiple choice quiz (A,B,C,D) with {num_questions} questions based on the content provided below, and give me the answers? Return output in json format of a list of question, options, and answer."
 
     # Assuming the model returns JSON structured data
     response = model.generate_content([promptQuiz, combined_text_cur])
@@ -43,6 +44,7 @@ def converter(files, topic, app):
         if file:
             file_extension = os.path.splitext(file.filename)[1]
             file_path = os.path.join(app.config['UPLOAD_FOLDER'], f"{os.path.splitext(file.filename)[0]}_{os.urandom(4).hex()}{file_extension}")
+            files_to_delete.append(file_path)
             file.save(file_path)
             text = extract_text(file_path)  # Extract text for each file
             combined_text += f"\n---\n{text}"
@@ -64,6 +66,8 @@ def converter(files, topic, app):
             f.truncate()
             f.writelines(lines[1:-1])
     
+    files_to_delete.append("./quiz.json")
+    files_to_delete.append("./summary.json")
     
 # Converter Helpers
 def extract_text(file_path):
@@ -102,3 +106,19 @@ def cleaner():
     json_files = glob.glob(os.path.join('./', '*.json'))
     for file_path in json_files:
         os.remove(file_path)
+
+def clean_up():
+    print(f"         Handling Cleanup")
+    for file in files_to_delete:
+        if os.path.exists(file):
+            os.remove(file)
+            print(f"         Deleted file: {file}")
+        else:
+            print(file, "DNE")
+    
+    addFiles = ['summary.json', 'final.json']
+    for file in addFiles:
+        file_path = os.path.join('./', file)
+        if os.path.exists(file_path):
+            os.remove(file_path)
+            print(f"         Deleted file: {file}")
