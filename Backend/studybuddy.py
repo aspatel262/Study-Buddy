@@ -31,54 +31,69 @@ def sample():
 
 @app.route('/process_summary', methods=['POST'])
 def process_summary():
-    print("Processing summary...")
-    cleaner()
-    if 'file' not in request.files:
-        return jsonify({"message": "No file part"}), 400
+    try:
+        print("Processing summary...")
+        cleaner()
+        if 'file' not in request.files:
+            return jsonify({"message": "No file part"}), 400
 
-    files = request.files.getlist('file')
-    topic = request.form['topic']
-    
-    # only keeping valid files
-    valid_files = [file for file in files if allowed_file(file.filename)]
+        files = request.files.getlist('file')
+        topic = request.form['topic']
+        
+        # only keeping valid files
+        valid_files = [file for file in files if allowed_file(file.filename)]
 
-    # if no valid files
-    if not valid_files:
-        return jsonify({"message": "No valid files provided"}), 400
-    
-    # Process all files together
-    converter(files, topic, app)
-    
-    combined_results = {}
-    
-    with open('./summary.json', 'r') as out:
-        data = json.load(out)
-        combined_results.update(data)
+        # if no valid files
+        if not valid_files:
+            return jsonify({"message": "No valid files provided"}), 400
+        
+        # Process all files together
+        converter(files, topic, app)
+        
+        combined_results = {}
+        
+        with open('./summary.json', 'r') as out:
+            data = json.load(out)
+            combined_results.update(data)
 
-    new_json_content = {'Summary': combined_results}
-    with open('final.json', 'w') as json_file:
-        json.dump(combined_results, json_file, indent=4)
-    return jsonify(new_json_content)
+        new_json_content = {'Summary': combined_results}
+        with open('final.json', 'w') as json_file:
+            json.dump(combined_results, json_file, indent=4)
+        
+        print("Process Summary Successful")
+        clean_up()
+        return jsonify(new_json_content)
+    except Exception as e:
+        print(f"Error processing summary: {e}")  # Debugging output
+        clean_up()
+        return jsonify({"error": str(e)}), 400
 
 @app.route('/process_quiz', methods=['GET'])
 def process_quiz():
     try:
+        print("Processing quiz...")
         amt = request.args.get('amt', default=5, type=int)
         tp = request.args.get('topic', default=None, type=str)
 
         if not tp:
             return jsonify({"error": "Topic parameter is required."}), 400
 
-        print(f"Received amt: {amt}, topic: {tp}")  # Debugging output
+        print(f"         Received amt: {amt}, topic: {tp}")  # Debugging output
 
         generate_quiz(tp, amt)
         with open('./quiz.json', 'r') as out:
             data = json.load(out)
-
+        file_path = os.path.join('./', 'quiz.json')
+        if os.path.exists(file_path):
+            os.remove(file_path)
+            
+        print("Process Quiz Successful")
         return jsonify({'Questions': data})
     except Exception as e:
         print(f"Error processing quiz: {e}")  # Debugging output
         return jsonify({"error": str(e)}), 400
+    
+
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
