@@ -1,41 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './feature.css'; // Update with correct path
-import CountUp from 'react-countup';
 import masc from '../assets/logoDump/mascotNoBG.png'; // Ensure these paths are correct
 import { quantum } from 'ldrs';
 
 quantum.register();
-
-function Testimonial({ quote, author, authorImageSrc }) {
-  return (
-    <div className="testimonial">
-      <p className="testimonial-quote">"{quote}"</p>
-      <div className="testimonial-author">
-        <img src={authorImageSrc} alt={author} className="testimonial-image" />
-        <footer className="testimonial-name">- {author}</footer>
-      </div>
-    </div>
-  );
-}
-
-function Statistic({ value, decimals, suffix, label }) {
-  const handleMouseOver = (e) => {
-    e.target.style.transform = 'scale(1.1)';
-  };
-
-  const handleMouseOut = (e) => {
-    e.target.style.transform = 'scale(1)';
-  };
-
-  return (
-    <div className="statistic" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-      <div className="statistic-number">
-        <CountUp end={value} duration={2.5} decimals={decimals} preserveValue suffix={suffix} />
-      </div>
-      <p className="statistic-label">{label}</p>
-    </div>
-  );
-}
 
 function Figure() {
   const [files, setFiles] = useState([]);
@@ -50,14 +18,37 @@ function Figure() {
   const [loading, setLoading] = useState(false);
   const [quizLoading, setQuizLoading] = useState(false);
   const [curTop, setCurTop] = useState('')
-  const [wantQuiz, setWantQuiz] = useState(false);
+  const [curGuess, setCurGuess] = useState(false);
+  const [showQuizCreation, setShowQuizCreation] = useState(false); 
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [showFinalScore, setShowFinalScore] = useState(false);
+  const [idkybutitworks, setidkybutitworks] = useState(true);
+  const [begin, setBegin] = useState(true);
 
   const handleFileSelect = (event) => {
     setFiles([...files, ...event.target.files]);
   };
 
+  useEffect(() => {
+    if (selectedOption !== null) {
+      const timer = setTimeout(() => {
+        if (currentQuestion < numQuestions) {
+          setCurrentQuestion(current => current + 1);
+          setSelectedOption(null);
+          setCurGuess(false);
+        } else {
+          setShowFinalScore(true);
+          setQuizPopulated(false);
+          setQuizStarted(false);
+        }
+      }, 3000); // Show result for 3 seconds
+      return () => clearTimeout(timer);
+    }
+  }, [selectedOption, quizQuestions, currentQuestion, numQuestions]);
+
   const handleGenerateClick = async (event) => {
     setLoading(true); // Start loading
+    setBegin(false);
     handleMsg(event); // You need to convert handleMsg into an async function or chain it properly with promises.
   };
 
@@ -69,6 +60,7 @@ function Figure() {
     });
     formData.append("topic", topicName);
     // Add other form data as needed
+    console.log("Fetching summary flashcards");
     fetch("http://127.0.0.1:5000/process_summary", {
       method: "POST",
       body: formData,     
@@ -81,7 +73,9 @@ function Figure() {
     })
     .catch(error => {
       console.error('Error:', error);
+      alert('Unable to create summary, try again!');
       setLoading(false); // Ensure loading is false on error as well
+      setBegin(true);
     });
 
     setQuizStarted(true);
@@ -92,6 +86,7 @@ function Figure() {
 
   const handleQuizStart = async () => {
     setQuizLoading(true);
+    setidkybutitworks(false);
     try {
       const url = new URL('http://127.0.0.1:5000/process_quiz');
       url.searchParams.append('amt', numQuestions); // Ensure numQuestions is a valid integer
@@ -121,17 +116,29 @@ function Figure() {
     } finally {}
     setQuizLoading(false);
   };
-  
-  const handleAnswerSelect = (selectedChoice) => {
-    const currentQuizQuestion = quizQuestions[currentQuestion - 1];
-    if (selectedChoice === currentQuizQuestion.answer && currentQuestion <= numQuestions) {
+
+  const handleAnswerSelect = (optionKey) => {
+    setSelectedOption(optionKey);
+    const isCorrect = quizQuestions[currentQuestion - 1].answer === optionKey;
+    if (isCorrect && !curGuess) {
       setCurrentScore(currentScore + 1);
     }
-    if (currentQuestion < numQuestions) {
-      setCurrentQuestion(currentQuestion + 1);
-    } else {
-      // Handle the end of the quiz
-    }
+    setCurGuess(true);
+  };
+
+  const resetQuiz = () => {
+    setQuizStarted(true);
+    setQuizPopulated(false);
+    setShowFinalScore(false);
+    setCurrentQuestion(1);
+    setCurrentScore(0);
+    setShowQuizCreation(false);
+    setCurGuess(false);
+    setSelectedOption()
+    setQuizQuestions([]);
+    setNumQuestions(0);
+    setSelectedOption(null)
+    setidkybutitworks(true);
   };
 
   const formatKey = (key) => {
@@ -145,7 +152,19 @@ function Figure() {
           Send us your study material,{" "}<span className='suga'>we'll help from here...</span>
         </h1>
 
-        {loading ? (
+        {begin && (
+          <div className="api-output loading-container m-4">
+            <l-quantum size="100" speed="1.75" color="DodgerBlue" />
+            <p className='loading-text m-4'>
+              <span className='typing-effect-slower'>Click 'Upload Files' and get started!</span>
+            </p>
+            <img src={masc} alt="Mascot" className="mascot" />
+          </div>
+        )}
+
+        
+
+        {!begin && loading && (
           <div className="api-output loading-container">
             <l-quantum size="100" speed="1.75" color="DodgerBlue" />
             <p className='loading-text'>
@@ -153,19 +172,17 @@ function Figure() {
             </p>
             <img src={masc} alt="Mascot" className="mascot" />
           </div>
-        ) : (
+        )}
+
+        {!begin && !loading && msg && (
           <div className="api-output">
-            {msg ? (
-              Object.entries(msg).map(([key, value], index) => (
-                <div key={index} className='flash-card-container'>
-                  <h2 className='flash-card-header'>{formatKey(key)}</h2>
-                  <p className='flash-card-definition'>{value}</p>
-                  <img src={masc} alt="Mascot" className="mascot" />
-                </div>
-              ))
-            ) : (
-              <img src={masc} alt="Mascot" className="mascot" />
-            )}
+            {Object.entries(msg).map(([key, value], index) => (
+              <div key={index} className='flash-card-container'>
+                <h2 className='flash-card-header'>{formatKey(key)}</h2>
+                <p className='flash-card-definition'>{value}</p>
+                <img src={masc} alt="Mascot" className="mascot" />
+              </div>
+            ))}
           </div>
         )}
         
@@ -181,11 +198,28 @@ function Figure() {
           </form>
         </div>
 
-        {quizStarted && !loading && (
+        {showFinalScore && (
+          <div className="api-output-final-score loading-container">
+            <p className='loading-text'>
+              <span className='typing-effect'>Final Score: &nbsp; {currentScore}/{numQuestions}</span>
+            </p>
+            <button onClick={resetQuiz} className="file-upload-label">Close Quiz Window</button>
+          </div>
+        )}
+
+        {idkybutitworks && !showFinalScore && quizStarted && !loading && (
           <div className={`animated-section visible`}>
-            <h2 style={{ color: '#1a8cd8', fontSize: '1.3rem', fontWeight: 'bold', paddingLeft: '75px'}}>
-              Ready to <span className='suga2'>practice</span>? Let's create a quiz!
-            </h2>
+
+            <div className="quiz-trigger">
+              <h2 style={{ color: '#1a8cd8', fontSize: '1.3rem', fontWeight: 'bold', paddingLeft: '75px'}}>{!showQuizCreation ?  'Up For A ' : 'Not Feeling It?'}<span className='suga2'>{!showQuizCreation ? 'Challenge?' : ''}</span></h2>
+              <button onClick={() => setShowQuizCreation(!showQuizCreation)} className="file-upload-label">
+              {showQuizCreation ? 'Nevermind, No Quiz' : 'Create A Quiz'}
+              </button>
+            </div>
+          </div>
+        )}
+        {!showFinalScore && showQuizCreation && !quizPopulated && !quizLoading && (
+          <div className={`animated-section visible`}>
             <div className="input-section">
               <label htmlFor="numQuestions">How many questions?</label>
               <input type="number" id="numQuestions" value={numQuestions} onChange={(e) => setNumQuestions(e.target.value)} placeholder="0" />
@@ -194,7 +228,16 @@ function Figure() {
           </div>
         )}
 
-        {quizPopulated ? (
+        {quizLoading && (
+              <div className="api-output loading-container">
+                <l-quantum size="100" speed="1.75" color="DodgerBlue" />
+                <p className='loading-text'>
+                  <span className='typing-effect'>Lets see what you know... &nbsp;</span>
+                </p>
+              </div>
+        )}
+        
+        {quizPopulated && !showFinalScore ? (
           <div className="animated-section visible">
             {quizLoading ? (
               <div className="api-output loading-container">
@@ -219,8 +262,12 @@ function Figure() {
                     <button 
                       key={optionKey} 
                       onClick={() => handleAnswerSelect(optionKey)}
-                      className='answer-option'>
-                      {`${optionKey}: ${optionValue}`}
+                      className={`answer-option 
+                        ${selectedOption === optionKey ? 'selected' : ''} 
+                        ${quizQuestions[currentQuestion - 1].answer === optionKey ? 'correct' : ''}
+                        ${selectedOption === optionKey && quizQuestions[currentQuestion - 1].answer !== optionKey ? 'incorrect' : ''}
+                      `}>
+                        {optionKey}: {optionValue}
                     </button>
                   ))}
                 </div>
