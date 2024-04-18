@@ -1,4 +1,4 @@
-# Study Buddy  <img src="https://raw.githubusercontent.com/avaneeshp/Study-Buddy/main/front/src/assets/logoDump/navbarLogo.png" alt="Study Buddy Navbar Logo" width="150" align="right"/>
+# Study Buddy  <img src="https://github.com/aspatel262/Study-Buddy/blob/main/frontend/src/assets/logoDump/mascot.jpg" alt="Study Buddy Navbar Logo" width="150" align="right"/>
 
 This is a study-helper website project made to make your life easier when catching up on lecture content in an interactive way.
 
