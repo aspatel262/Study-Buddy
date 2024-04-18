@@ -9,7 +9,7 @@ import PIL.Image
 import json
 
 
-os.environ["GOOGLE_API_KEY"] = 'AIzaSyA4U95OPm8gMXZ63Q63xjZCAydnb9mE0Tg'
+os.environ["GOOGLE_API_KEY"] = '' #ENTER API KEY FOR GOOGLE GEMINI 1.5 API HERE
 genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
 
 workdir = "."
@@ -32,7 +32,7 @@ def generate_quiz(topic, num_questions):
         f.writelines(lines[1:-1])
 
 def converter(files, topic, app):
-    os.environ["GOOGLE_API_KEY"] = 'AIzaSyA4U95OPm8gMXZ63Q63xjZCAydnb9mE0Tg'
+    os.environ["GOOGLE_API_KEY"] = '' #ENTER API KEY FOR GOOGLE GEMINI 1.5 API HERE
     genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
     model = genai.GenerativeModel('gemini-1.5-pro-latest')
     
