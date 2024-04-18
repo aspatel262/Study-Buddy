@@ -2,7 +2,9 @@
 
 This is a study-helper website project made to make your life easier when catching up on lecture content in an interactive way.
 
-For quick launch local hosting, run '$python3 backend/studybuddy.py' in the terminal, and in another terminal in the frontend directory, run '$npm start'. Note that you will need your own Google Gemini 1.5 API key for this to write in the 'api key here' spaces in generator.py. Have not set up env variables yet.
+
+For quick launch local hosting, run '$python3 backend/studybuddy.py' in the terminal, and in another terminal in the frontend directory, run '$npm start'. Note that you will need your own Google Gemini 1.5 API key for this to write in the 'api key here' spaces in generator.py. Have not set up env variables yet. Billing rates may apply post April 2024.
+
 
 ## Inspiration
 Lately, the EECS Office Hours queue has been busier than Ann Arbor on football gamedays. Myself and my peers alike are often in dire need of help, but can never rely on office hours to get them. For a service that is so highly encouraged, it would be nice to have availability and access. So, we sought to solve this issue by making a virtual TA, training to solve all of these issues! This feature aims to summarize any course content file provided into quick, easy flashcards to study from. 
