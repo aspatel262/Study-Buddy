@@ -1,4 +1,4 @@
-# Study Buddy  <img src="https://github.com/aspatel262/Study-Buddy/blob/main/frontend/src/assets/logoDump/mascot.jpg" alt="Study Buddy Navbar Logo" width="150" align="right"/>
+# Study Buddy  
 
 This is a study-helper website project made to make your life easier when catching up on lecture content in an interactive way.
 
@@ -30,5 +30,3 @@ Coming soon, we have exciting features headlined by Q&A support. We will fine tu
 ## Services
 A user can input files of the format pdf, jpeg, jpg, png, and txt, and our website will generate and output a summary of each of the files. Then, the user can proceed to request a quiz about all the files it has inputted. On request, the website will create an interactive quiz that can test the user's knowledge.
 
-## Logo
-<img src="https://raw.githubusercontent.com/avaneeshp/Study-Buddy/main/front/src/assets/logoDump/mascot.jpg" alt="Study Buddy Mascot" width="200"/>
