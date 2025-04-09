@@ -35,7 +35,7 @@ function Component() {
     <Navbar style={navbarStyle} className="fixed top-0 w-full z-50">
       <div className="flex justify-between items-center w-full">
         {/* Navbar Brand */}
-        <Navbar.Brand href="/">
+        <Navbar.Brand href="/" className="pl-100">
           <img src={navbarLogo} className="mr-3 h-20 sm:h-9" alt="Study Buddy Logo" />
           <span className="self-center whitespace-nowrap text-2xl font-semibold text-white">Study Buddy</span>
         </Navbar.Brand>
